@@ -254,47 +254,6 @@ chmod +x deploy.sh
 ```
 
 
-## 🚀 Alternative Deployments
-
-### Deploy on Fly.io
-
-```bash
-# Install Fly CLI
-curl -L https://fly.io/install.sh | sh
-
-# Login
-flyctl auth login
-
-# Launch the app
-flyctl launch
-
-# Set region (Istanbul is best for Iran)
-flyctl regions set ist
-
-# Deploy
-flyctl deploy
-```
-
-### Deploy on Render.com
-
-1. Push your code to GitHub
-2. Go to [render.com](https://render.com)
-3. Click "New +" -> "Web Service"
-4. Connect your GitHub repository
-5. Settings:
-   - Build Command: `npm install`
-   - Start Command: `node server.js`
-6. Click "Create Web Service"
-
-### Deploy on Railway.app
-
-1. Push your code to GitHub
-2. Go to [railway.app](https://railway.app)
-3. Click "New Project" -> "Deploy from GitHub"
-4. Select your repository
-5. Railway will automatically deploy
-
-
 ## 🔧 Environment Variables
 
 | Variable | Description | Default |
@@ -346,7 +305,6 @@ music-room/
 ├── package.json        # Dependencies
 ├── README.md           # Documentation
 ├── .gitignore          # Git ignore file
-├── deploy.sh           # One-click deployment script
 └── uploads/            # Uploaded files (auto-created)
 ```
 
