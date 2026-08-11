@@ -31,7 +31,7 @@ A simple and minimal web application for real-time music streaming with friends.
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/music-room.git
+git clone https://github.com/sargdsra/music-room.git
 cd music-room
 
 # Install dependencies
