@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎵 Music Room - Listen with Friends</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="app">
+        <!-- Join Screen -->
+        <div id="joinScreen" class="screen active">
+            <div class="container">
+                <div class="logo">🎵</div>
+                <h1>Music Room</h1>
+                <p class="subtitle">Listen to music with your friends</p>
+
+                <div class="card">
+                    <div class="input-group">
+                        <input type="text" id="usernameInput" placeholder="Enter your name..." />
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" id="roomIdInput" placeholder="Room code (optional)" />
+                        <button id="joinBtn" class="btn-primary">Join</button>
+                    </div>
+
+                    <div class="divider">or</div>
+
+                    <button id="createBtn" class="btn-secondary">➕ Create New Room</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Room Screen -->
+        <div id="roomScreen" class="screen">
+            <div class="container">
+                <!-- Header -->
+                <div class="room-header">
+                    <div>
+                        <h2>🚪 Room: <span id="roomDisplayId">---</span></h2>
+                        <span id="userCount" class="badge">0 users</span>
+                    </div>
+                    <div>
+                        <button id="copyLinkBtn" class="btn-icon" title="Copy link">📋</button>
+                        <button id="leaveBtn" class="btn-icon" title="Leave">🚪</button>
+                    </div>
+                </div>
+
+                <!-- Player -->
+                <div class="music-player">
+                    <div id="currentSongDisplay" class="current-song">
+                        <span class="song-icon">🎵</span>
+                        <span id="currentSongTitle">No song playing</span>
+                    </div>
+
+                    <div class="player-controls">
+                        <button id="playPauseBtn" class="control-btn">▶️</button>
+                        <div class="progress-container">
+                            <span id="currentTimeDisplay">0:00</span>
+                            <input type="range" id="seekSlider" value="0" max="100" />
+                            <span id="durationDisplay">0:00</span>
+                        </div>
+                        <button id="nextBtn" class="control-btn">⏭️</button>
+                    </div>
+                </div>
+
+                <!-- Add Song -->
+                <div class="add-section">
+                    <h3>➕ Add Song</h3>
+                    <div class="add-tabs">
+                        <button class="tab-btn active" data-tab="url">URL</button>
+                        <button class="tab-btn" data-tab="upload">Upload</button>
+                    </div>
+
+                    <div id="urlTab" class="tab-content active">
+                        <div class="input-group">
+                            <input type="text" id="songUrlInput" placeholder="YouTube or SoundCloud link..." />
+                            <button id="addUrlBtn">Add</button>
+                        </div>
+                    </div>
+
+                    <div id="uploadTab" class="tab-content">
+                        <div class="upload-area" id="uploadArea">
+                            <p>📁 Drag & drop audio file or click to select</p>
+                            <p style="font-size: 12px; color: #999;">Supported: MP3, WAV, OGG, M4A</p>
+                            <input type="file" id="fileInput" accept="audio/*" multiple />
+                        </div>
+                        <div id="uploadProgress" class="upload-progress hidden">
+                            <div class="progress-bar">
+                                <div id="progressFill" style="width: 0%"></div>
+                            </div>
+                            <span id="progressText">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Playlist & Users -->
+                <div class="bottom-section">
+                    <div class="playlist-section">
+                        <h3>📋 Playlist</h3>
+                        <ul id="playlistContainer" class="playlist"></ul>
+                    </div>
+
+                    <div class="users-section">
+                        <h3>👥 Users (<span id="userCountBadge">0</span>)</h3>
+                        <ul id="usersContainer" class="users-list"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Socket.IO Client -->
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
